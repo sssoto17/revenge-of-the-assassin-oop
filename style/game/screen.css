@@ -1,0 +1,44 @@
+#screen {
+	container-type: inline-size;
+	position: relative;
+	background-image:
+		url("/assets/game/setting/layer_1.svg"),
+		url("/assets/game/setting/layer_0.svg");
+	background-size: 100cqi;
+	aspect-ratio: 16/9;
+	overflow: clip;
+
+	&[data-mode="start"]::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url("/assets/game/title_screen.webp");
+		background-size: 100%;
+		z-index: 50;
+	}
+
+	> * {
+		aspect-ratio: 16/9;
+		position: absolute;
+		inset: 0;
+
+		&#entities::before,
+		&#entities::after {
+			content: var(--src);
+			z-index: var(--z);
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+		}
+
+		&#entities::before {
+			--src: url("/assets/game/setting/layer_2.svg");
+			--z: 10;
+		}
+
+		&#entities::after {
+			--src: url("/assets/game/setting/layer_3.svg");
+			--z: 20;
+		}
+	}
+}
