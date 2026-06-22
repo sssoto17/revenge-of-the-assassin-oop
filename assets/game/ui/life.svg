@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ui_life" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #f1626e;
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="-959.5" y="755.5" width="1920" height="1080"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="192.91" cy="201.08" fx="414.1" fy="201.08" r="226.69" gradientTransform="translate(415.01 -3.25) rotate(87.12) scale(1 1.15)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffc"/>
+      <stop offset=".11" stop-color="#fff8c1"/>
+      <stop offset=".29" stop-color="#ffe7a6"/>
+      <stop offset=".4" stop-color="#ffdb94"/>
+      <stop offset=".46" stop-color="#fdce8e"/>
+      <stop offset=".67" stop-color="#f8a67d"/>
+      <stop offset=".84" stop-color="#f68d72"/>
+      <stop offset=".94" stop-color="#f5846f"/>
+    </radialGradient>
+  </defs>
+  <g id="flame">
+    <path class="cls-3" d="m354,273.64c-16.49,59.29-75.59,125.42-152.83,125.86-91.7.52-160.53-91.83-160.53-160.53,0-56.51,29.19-106.2,73.32-134.81-7.33,32.52-.99,65.37,16.81,85.74,10.01-5.88,43.61-27.29,58.82-70.67,20.72-59.09-9.89-109.84-14.1-116.56,136.23,54.58,204.66,176.93,178.51,270.98Z"/>
+  </g>
+  <g id="heart">
+    <path class="cls-2" d="m259.67,311.26l-52.55,51.45c-4.34,4.24-11.43,4.24-15.76,0l-77.77-76.14c-18.79-18.39-18.79-48.49,0-66.88h0c18.79-18.39,49.52-18.39,68.31,0l77.77,76.14c4.34,4.24,4.34,11.19,0,15.43Z"/>
+    <path class="cls-2" d="m191.88,362.7l-52.55-51.45c-4.34-4.24-4.34-11.19,0-15.43l77.77-76.14c18.79-18.39,49.52-18.39,68.31,0h0c18.79,18.39,18.79,48.49,0,66.88l-77.77,76.14c-4.34,4.24-11.43,4.24-15.76,0Z"/>
+  </g>
+</svg>
