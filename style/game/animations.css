@@ -1,0 +1,92 @@
+#entities > .spawn {
+	animation: var(--speed, 5s) linear attr(data-delay s) infinite forwards
+		running entity_mv;
+
+	&[data-paused] {
+		animation-play-state: paused;
+		pointer-events: none;
+	}
+
+	&[data-hit] {
+		z-index: 100;
+
+		&[data-character="cultist"]::after,
+		&[data-character="criminal"]::after {
+			animation: hit_success 1s ease-in-out 1 both;
+		}
+
+		&[data-character="life"]::after {
+			animation: hit_life 2s ease-in-out 1 both;
+		}
+
+		&[data-character="civilian"]::after {
+			animation: hit_fail 0.7s ease-in-out 1 both;
+		}
+	}
+}
+
+@keyframes entity_mv {
+	/* 10% {
+		translate: 160% -20%;
+	}
+	50% {
+		translate: 800% 0;
+	} */
+	100% {
+		left: 0;
+		translate: calc(calc(100% / var(--size)) * 100%) 10%;
+	}
+}
+
+@keyframes hit_success {
+	25% {
+		scale: 1.5;
+	}
+	50% {
+		scale: 1;
+	}
+	75% {
+		scale: 1.2;
+		opacity: 100%;
+	}
+	100% {
+		scale: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes hit_life {
+	25% {
+		scale: 1.5;
+	}
+	100% {
+		scale: 0.5;
+		opacity: 0;
+	}
+}
+
+@keyframes hit_fail {
+	25% {
+		translate: 0 -20%;
+		transform: rotate(35deg);
+	}
+	50% {
+		translate: 0;
+		transform: rotate(-35deg);
+	}
+	75% {
+		translate: 0 -10%;
+		transform: rotate(25deg);
+		opacity: 100%;
+	}
+	100% {
+		opacity: 0;
+		transform: rotate(-25deg);
+	}
+}
+
+@keyframes button_pulse {
+	50% {
+		scale: 1.1;
+	}
+}

@@ -1,0 +1,82 @@
+#entities {
+	[data-character] {
+		position: absolute;
+		aspect-ratio: 7/15;
+
+		&::after {
+			content: var(--sprite);
+			position: absolute;
+			inset: 0;
+		}
+
+		&[data-character="cultist"] {
+			--sprite: url("/assets/game/entities/cultist.svg");
+
+			/* &[data-hit] {
+				--sprite: url("/assets/game/entities/cultist_dead.svg");
+				aspect-ratio: 1;
+				scale: 1.5;
+			} */
+		}
+
+		&[data-character="criminal"] {
+			--sprite: url("/assets/game/entities/criminal.svg");
+		}
+
+		&[data-character="civilian"] {
+			--sprite: url("/assets/game/entities/civilian.svg");
+		}
+
+		&[data-character="life"] {
+			--sprite: url("/assets/game/entities/life.svg");
+			aspect-ratio: 4/5;
+		}
+	}
+
+	[data-position] {
+		width: var(--size);
+		bottom: var(--distance);
+		left: calc(var(--size) * -1);
+		z-index: var(--z);
+
+		&[data-position="1"] {
+			--size: 7%;
+			--distance: 30%;
+			--z: 5;
+		}
+
+		&[data-position="2"] {
+			--size: 8%;
+			--distance: 25%;
+			--z: 10;
+		}
+
+		&[data-position="3"] {
+			--size: 10%;
+			--distance: 15%;
+			--z: 14;
+		}
+
+		&[data-position="4"] {
+			--size: 13%;
+			--distance: 5%;
+			--z: 16;
+		}
+
+		&[data-speed="fast"] {
+			--speed: 2.5s;
+		}
+
+		&[data-speed="1"] {
+			--speed: 6s;
+		}
+
+		&[data-speed="2"] {
+			--speed: 8s;
+		}
+
+		&[data-speed="3"] {
+			--speed: 10s;
+		}
+	}
+}
