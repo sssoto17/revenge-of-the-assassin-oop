@@ -28,7 +28,7 @@ class App {
 		this.timer = new Timer(this.view, this.state, {
 			onTick: (t) => {
 				this.state.time = t;
-				this.view.renderTimer(t);
+				this.view.timer = t;
 			},
 			onExpire: () => this.endGame("time"),
 		});
@@ -55,7 +55,7 @@ class App {
 		const wasMax = this.state.lifeMaxed;
 
 		this.state.life = delta;
-		this.view.renderLives(this.state.life);
+		this.view.life_board = this.state.life;
 
 		const isMax = this.state.lifeMaxed;
 
@@ -78,7 +78,7 @@ class App {
 
 	applyScore(delta) {
 		this.state.score = delta;
-		this.view.renderScore(this.state.score);
+		this.view.score_board = this.state.score;
 	}
 
 	endGame(reason) {

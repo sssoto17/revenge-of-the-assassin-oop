@@ -12,94 +12,24 @@
 	}
 }
 
-button {
-	--clr: white;
-	color: var(--clr);
-	text-transform: uppercase;
-	transition: scale 0.15s ease-in;
-
-	&#play {
-		--offset: 6cqi;
-		border: var(--clr) solid 4px;
-		border-radius: 10px;
-		right: var(--offset);
-		bottom: var(--offset);
-		padding: 1cqb 6cqi;
-		font-family: var(--font-body);
-		font-weight: 700;
-		font-size: 4cqw;
-		letter-spacing: 0.25cqi;
-		animation: button_pulse 1.25s infinite linear;
-	}
-
-	&#pause {
-		bottom: 0;
-
-		[data-mode="start"] & {
-			display: none;
-		}
-	}
-
-	&#toggle_mute,
-	&#tutorial {
-		position: relative;
-		aspect-ratio: 32/24;
-		width: 32px;
-
-		&::after {
-			content: var(--src);
-			position: absolute;
-			inset: 0;
-		}
-
-		&:hover {
-			scale: 1.2;
-		}
-
-		button + & {
-			margin: 0.5cqi;
-		}
-	}
-
-	&#toggle_mute {
-		&[data-playing="true"] {
-			--src: url("/assets/icons/toggle_unmute.svg");
-		}
-		&[data-playing="false"] {
-			--src: url("/assets/icons/toggle_mute.svg");
-		}
-	}
-	&#tutorial {
-		--src: url("/assets/icons/guide.svg");
-	}
-
-	&#back {
-		display: none;
-	}
-}
-
 [data-mode="start"] {
-	#life_board,
-	#score_board {
+	#hud {
 		display: none;
 	}
 }
 
 [data-mode="play"] {
 	#play,
-	#mute,
-	#guide {
+	#toggle_mute,
+	#tutorial {
 		display: none;
 	}
 
 	#life_board {
-		--current: attr(data-current type(<number>));
-		--max: attr(data-max type(<number>));
-		width: calc(var(--max) * 5cqi);
-		display: grid;
-		grid-template-columns: repeat(var(--max), 1fr);
+		display: flex;
 
 		li {
+			flex: 0 0 5cqi;
 			background-image: url("/assets/game/ui/life.svg");
 			background-size: 100%;
 			background-repeat: no-repeat;
@@ -107,28 +37,23 @@ button {
 		}
 	}
 
+	#timer,
 	#score_board {
-		background-image:
-			url("/assets/game/ui/timer.svg"),
-			url("/assets/game/ui/score_board.svg");
+		background-image: var(--src);
 		background-size: 100%;
 		aspect-ratio: 47/64;
 		width: 20cqi;
 		right: 0;
 		bottom: 0;
-		display: grid;
-		place-items: center;
+		/* display: grid;
+		place-content: center; */
+	}
 
-		&::after {
-			content: attr(data-score);
-			font-family: var(--font-display);
-			font-size: 5cqi;
-			font-weight: bold;
-			text-align: center;
-		}
+	#timer {
+		--src: url("/assets/game/ui/timer.svg");
+		font-family: var(--font-symbols);
 
 		li {
-			font-family: var(--font-symbols);
 			position: absolute;
 			font-size: 4cqi;
 			transition: opacity 2s linear;
@@ -143,25 +68,47 @@ button {
 			}
 			&:first-child,
 			&:nth-child(3) {
+				left: auto;
 				right: 20%;
 			}
 
 			&:nth-child(4),
 			&:last-child {
 				left: 20%;
+				right: auto;
+			}
+
+			&:nth-child(2),
+			&:nth-child(5) {
+				top: 50%;
+				translate: 0 -50%;
 			}
 
 			&:nth-child(2) {
+				left: auto;
 				right: 0;
 			}
 			&:nth-child(5) {
 				left: 0;
+				right: auto;
 			}
 
 			&:nth-child(3),
 			&:nth-child(4) {
+				top: auto;
 				bottom: 0;
 			}
 		}
+	}
+
+	#score_board {
+		--src: url("/assets/game/ui/score_board.svg");
+
+		display: grid;
+		place-items: center;
+		font-family: var(--font-display);
+		font-size: 5cqi;
+		font-weight: bold;
+		text-align: center;
 	}
 }

@@ -1,0 +1,65 @@
+button {
+	--clr: white;
+	color: var(--clr);
+	text-transform: uppercase;
+	transition: scale 0.15s ease-in;
+
+	&#play {
+		--offset: 6cqi;
+		border: var(--clr) solid 4px;
+		border-radius: 10px;
+		right: var(--offset);
+		bottom: var(--offset);
+		padding: 1cqb 6cqi;
+		font-family: var(--font-body);
+		font-weight: 700;
+		font-size: 4cqw;
+		letter-spacing: 0.25cqi;
+		animation: button_pulse 1.25s infinite linear;
+	}
+
+	&#pause {
+		bottom: 0;
+
+		[data-mode="start"] & {
+			display: none;
+		}
+	}
+
+	&#toggle_mute,
+	&#tutorial {
+		position: relative;
+		aspect-ratio: 32/24;
+		width: 32px;
+
+		&::after {
+			content: var(--src);
+			position: absolute;
+			inset: 0;
+		}
+
+		&:hover {
+			scale: 1.2;
+		}
+
+		button + & {
+			margin: 0.5cqi;
+		}
+	}
+
+	&#toggle_mute {
+		&[data-playing="true"] {
+			--src: url("/assets/icons/toggle_unmute.svg");
+		}
+		&[data-playing="false"] {
+			--src: url("/assets/icons/toggle_mute.svg");
+		}
+	}
+	&#tutorial {
+		--src: url("/assets/icons/guide.svg");
+	}
+
+	&#back {
+		display: none;
+	}
+}

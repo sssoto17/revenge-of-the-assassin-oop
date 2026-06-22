@@ -5,6 +5,9 @@ export default class View {
 	#renderer = new RendererService();
 	#screen;
 	#audio;
+	#life_board;
+	#score_board;
+	#timer;
 	#buttons = {
 		play: {
 			label: "play",
@@ -30,16 +33,15 @@ export default class View {
 			action: () => {},
 		},
 	};
-	#life_board;
-	#score_board;
 
 	constructor(app) {
 		this.#app = app;
 
 		this.#screen = this.#renderer.create("section", { id: "screen" });
 		this.#audio = this.#renderer.create("ul", { id: "sound_fx" });
+		this.#timer = this.#renderer.create("ul", { id: "timer" });
+		this.#score_board = this.#renderer.create("p", { id: "score_board" });
 		this.#life_board = this.#renderer.create("ul", { id: "life_board" });
-		this.#score_board = this.#renderer.create("ul", { id: "score_board" });
 
 		this.render();
 	}
@@ -60,8 +62,14 @@ export default class View {
 		return this.#life_board;
 	}
 
-	set life_board(max) {
-		this.#life_board.dataset.max = max;
+	set life_board(l) {
+		const lives = [];
+
+		for (var i = 0; i < l; i++) {
+			lives[i] = this.#renderer.create("li");
+		}
+
+		this.life_board.replaceChildren(...lives);
 	}
 
 	get score_board() {
@@ -69,15 +77,23 @@ export default class View {
 	}
 
 	set score_board(score = 0) {
-		this.#score_board.dataset.score = score;
+		this.#score_board.innerText = score;
 	}
 
-	set buttons(entries) {
-		this.#buttons = Object.fromEntries(entries);
+	get timer() {
+		return this.#timer;
+	}
+
+	set timer(t) {
+		this.#timer.childNodes[t].classList.add("hide");
 	}
 
 	get buttons() {
 		return this.#buttons;
+	}
+
+	set buttons(entries) {
+		this.#buttons = Object.fromEntries(entries);
 	}
 
 	get audio() {
@@ -100,11 +116,13 @@ export default class View {
 	renderHUD({ life, maxLife, score }) {
 		this.hud = this.#renderer.create("article", { id: "hud" });
 
+		this.life_board = life;
 		this.score_board = score;
-		this.renderLives(life, maxLife);
+
 		this.renderTimer();
 
 		this.hud.appendChild(this.life_board);
+		this.hud.appendChild(this.timer);
 		this.hud.appendChild(this.score_board);
 
 		this.screen.appendChild(this.hud);
@@ -132,26 +150,7 @@ export default class View {
 		this.screen.appendChild(this.controls);
 	}
 
-	renderLives(current, max) {
-		const lives = [];
-
-		if (max) {
-			this.life_board = max;
-		}
-
-		for (var i = 0; i < current; i++) {
-			lives[i] = this.#renderer.create("li");
-		}
-
-		this.life_board.replaceChildren(...lives);
-	}
-
 	renderTimer(t = 6) {
-		if (this.score_board.hasChildNodes()) {
-			this.score_board.childNodes[t].classList.add("hide");
-			return;
-		}
-
 		const symbols = [];
 
 		for (var i = 0; i < t; i++) {
@@ -159,6 +158,6 @@ export default class View {
 			symbols[i].innerText = i;
 		}
 
-		this.score_board.replaceChildren(...symbols);
+		this.timer.replaceChildren(...symbols);
 	}
 }
