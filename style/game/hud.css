@@ -1,4 +1,5 @@
-#hud {
+#hud,
+#controls {
 	padding: 2cqi;
 
 	> * {
@@ -29,10 +30,6 @@ button {
 		font-size: 4cqw;
 		letter-spacing: 0.25cqi;
 		animation: button_pulse 1.25s infinite linear;
-
-		&::after {
-			content: "play";
-		}
 	}
 
 	&#pause {
@@ -43,8 +40,8 @@ button {
 		}
 	}
 
-	&#mute,
-	&#guide {
+	&#toggle_mute,
+	&#tutorial {
 		position: relative;
 		aspect-ratio: 32/24;
 		width: 32px;
@@ -64,7 +61,7 @@ button {
 		}
 	}
 
-	&#mute {
+	&#toggle_mute {
 		&[data-playing="true"] {
 			--src: url("/assets/icons/toggle_unmute.svg");
 		}
@@ -72,7 +69,7 @@ button {
 			--src: url("/assets/icons/toggle_mute.svg");
 		}
 	}
-	&#guide {
+	&#tutorial {
 		--src: url("/assets/icons/guide.svg");
 	}
 

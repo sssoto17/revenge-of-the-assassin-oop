@@ -1,14 +1,14 @@
 import EntityManager from "./entities/manager.js";
 import Timer from "./logic/timer.js";
 import State from "./logic/state.js";
-import View from "./view.js";
+import View from "./view/index.js";
 import GameAudio from "./audio.js";
 import config from "./config/index.js";
 
 class App {
 	constructor(config) {
 		this.state = new State(config);
-		this.view = new View(this.state);
+		this.view = new View(this);
 		this.audio = new GameAudio(
 			this.view.audio,
 			this.view.buttons,
@@ -38,12 +38,7 @@ class App {
 
 	init() {
 		this.view.screen = "start";
-		// this.audio.playBackground();
-
-		this.view.buttons.play.addEventListener("click", () => this.start());
-		this.view.buttons.mute.addEventListener("click", () =>
-			this.audio.toggleMute(),
-		);
+		this.audio.playBackground();
 	}
 
 	start() {

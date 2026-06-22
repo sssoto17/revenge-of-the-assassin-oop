@@ -4,7 +4,11 @@ export default class RendererService {
 	create(tag = "div", attributes) {
 		const node = document.createElement(tag);
 
-		if (attributes !== null) {
+		if (tag === "ul") {
+			node.role = "list";
+		}
+
+		if (attributes) {
 			Object.entries(attributes).map(([attr, value]) => {
 				node[attr] = value;
 			});

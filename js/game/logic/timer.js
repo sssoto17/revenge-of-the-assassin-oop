@@ -7,22 +7,22 @@ export default class Timer {
 	events;
 
 	constructor(view, { time }, { onTick, onExpire }) {
-		this.#component = view.create("ul", {
-			id: "score_board",
-			role: "list",
-		});
+		// this.#component = view.create("ul", {
+		// 	id: "score_board",
+		// 	role: "list",
+		// });
 
-		this.#component.dataset.score = 0;
-		console.log(
-			"🚀 ~ Timer ~ constructor ~ this.#component:",
-			this.#component,
-		);
+		// this.#component.dataset.score = 0;
+		// console.log(
+		// 	"🚀 ~ Timer ~ constructor ~ this.#component:",
+		// 	this.#component,
+		// );
 		// this.#score_board = document.createElement("ul");
 		// this.#score_board.id = "score_board";
 		// this.#score_board.role = "list";
 		// this.#score_board.dataset.score = score;
 
-		console.log(this.#component);
+		// console.log(this.#component);
 
 		this.#tickLength = time;
 		this.#time = 6;

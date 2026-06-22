@@ -57,13 +57,9 @@ export default class GameAudio {
 		},
 	];
 
-	constructor(audio, { mute }, view) {
+	constructor(audio, { toggle_mute }, view) {
 		this.#player = audio;
-		this.#button = mute;
-
-		const test = view.create("ul", { id: "test", role: "list" }, "#hud");
-
-		console.log(test);
+		this.#button = toggle_mute;
 
 		this.generateTracks();
 	}
