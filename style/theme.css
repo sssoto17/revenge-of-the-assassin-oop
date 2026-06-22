@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+@font-face {
+	font-family: "Cinzel Decorative";
+	src:
+		url("/assets/fonts/cinzeldecorative-bold-webfont.woff2") format("woff2"),
+		url("/assets/fonts/cinzeldecorative-bold-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Necrofonticon";
+	src:
+		url("/assets/fonts/necrofonticon-webfont.woff2") format("woff2"),
+		url("/assets/fonts/necrofonticon-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--font-display: "Cinzel Decorative", serif;
+	--font-body: "Quicksand", sans-serif;
+	--font-symbols: "Necrofonticon", serif;
+}
