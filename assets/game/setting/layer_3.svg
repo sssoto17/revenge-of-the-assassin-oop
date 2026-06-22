@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="MASTER" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="1920" height="1080"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-503.71" y1="1393.81" x2="-503.71" y2="724.05" gradientTransform="translate(1318.01) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".32" stop-color="#dab0a0"/>
+      <stop offset=".51" stop-color="#d8ab9b"/>
+      <stop offset="1" stop-color="#d5a392"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-40.57" y1="1395" x2="-40.57" y2="725.23" gradientTransform="translate(1318.01) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d5a392" stop-opacity="0"/>
+      <stop offset=".16" stop-color="#ca9a8a" stop-opacity=".22"/>
+      <stop offset=".45" stop-color="#bb8c7e" stop-opacity=".55"/>
+      <stop offset=".69" stop-color="#af8276" stop-opacity=".79"/>
+      <stop offset=".88" stop-color="#a87c70" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#a67a6f"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="-1970.35" y1="1421" x2="-1970.35" y2="855" gradientTransform="translate(2325.42)" gradientUnits="userSpaceOnUse">
+      <stop offset=".37" stop-color="#a77a6f" stop-opacity=".99"/>
+      <stop offset=".56" stop-color="#b08276" stop-opacity=".99"/>
+      <stop offset=".89" stop-color="#cb9a8a" stop-opacity="1"/>
+      <stop offset="1" stop-color="#d5a392"/>
+    </linearGradient>
+    <filter id="outer-glow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="15"/>
+      <feFlood flood-color="red" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-5">
+    <g id="foreground">
+      <path class="cls-1" d="m2932.05,1253.68c-309.55-176.55-619.1-353.09-928.65-529.64-430.68,148.05-861.35,296.09-1292.03,444.14,209.8,75.21,419.59,150.42,629.39,225.63,530.43-46.71,1060.86-93.42,1591.29-140.13Z"/>
+      <path class="cls-3" d="m2004.59,725.23c-220.88,223.26-441.76,446.51-662.64,669.77-209.8-75.21-419.59-150.42-629.39-225.63,430.68-148.05,861.35-296.09,1292.03-444.14Z"/>
+      <path class="cls-4" d="m-175,855c161.49,223.26,31.51,342.74,193,566,153.39-75.21,713.74-68.42,867.13-143.63-314.89-148.05-745.25-274.32-1060.13-422.37Z"/>
+    </g>
+  </g>
+</svg>
